@@ -10,13 +10,15 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("SistemaVeterinaria")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Practica2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9df47175366811acd82513a995408da15909e75f")]
-[assembly: System.Reflection.AssemblyProductAttribute("SistemaVeterinaria")]
-[assembly: System.Reflection.AssemblyTitleAttribute("SistemaVeterinaria")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc3596c66d6c0fe82bdf42b0bddcdc5cc1c215c1")]
+[assembly: System.Reflection.AssemblyProductAttribute("Practica2")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Practica2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
+[assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
 
