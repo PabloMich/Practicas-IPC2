@@ -9,9 +9,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Data\" />
       <Folder Include="Graphviz\" />
-      <Folder Include="Services\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="Data\canciones.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
 </Project>

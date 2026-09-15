@@ -17,14 +17,14 @@ public class ColaReproduccion
     {
         NodoCola nuevoNodo = new NodoCola(cancion);
 
-        if (frente != null)
+        if (frente == null || final == null)
         {
             frente = nuevoNodo;
             final = nuevoNodo;
         }
         else
         {
-            final!.Siguiente = nuevoNodo;
+            final.Siguiente = nuevoNodo;
             final = nuevoNodo;
         }
     }
@@ -65,5 +65,10 @@ public class ColaReproduccion
             actual = actual.Siguiente;
         }
         return total;
+    }
+    
+    public NodoCola? ObtenerFrente()
+    {
+        return frente;
     }
 }

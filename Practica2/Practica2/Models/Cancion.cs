@@ -1,13 +1,35 @@
-﻿namespace Practica2.Models;
+﻿using System.Text.Json.Serialization;
+
+namespace Practica2.Models;
 
 public class Cancion
 {
+    [JsonPropertyName("titulo")]
     public string Titulo { get; set; }
-    public string Artista { get; set; }
-    public string Genero { get; set; }
-    public int Duracion { get; set; }
 
-    public Cancion(string titulo, string artista, string genero, int duracion)
+    [JsonPropertyName("artista")]
+    public string Artista { get; set; }
+
+    [JsonPropertyName("genero")]
+    public string Genero { get; set; }
+
+    [JsonPropertyName("duracion")]
+    public int Duracion { get; set; }
+    
+    public Cancion()
+    {
+        Titulo = "";
+        Artista = "";
+        Genero = "";
+        Duracion = 0;
+    }
+
+    public Cancion(
+        string titulo,
+        string artista,
+        string genero,
+        int duracion
+    )
     {
         Titulo = titulo;
         Artista = artista;

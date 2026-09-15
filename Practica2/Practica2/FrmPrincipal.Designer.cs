@@ -1,6 +1,6 @@
 ﻿namespace Practica2;
 
-partial class Form1
+partial class FrmPrincipal
 {
     /// <summary>
     ///  Required designer variable.
