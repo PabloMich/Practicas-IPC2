@@ -47,11 +47,62 @@ public partial class FrmPrincipal : Form
             arbol.Insertar(cancion);
         }
 
-        MessageBox.Show("Canciones cargadas correctamente.\n" +
-                        "Cantidad: " + canciones.Length + "\n" +
-                        "Tiempo total: " +
-                        cola.ObtenerTiempoTotal() +
-                        "minutos.");
+        ActualizarTiempoTotal();
+
     }
-    
+
+    private void ActualizarTiempoTotal()
+    {
+        int tiempo = cola.ObtenerTiempoTotal();
+
+        lblTiempoTotal.Text = "Tiempo restante: " + tiempo + " minutos";
+    }
+
+
+    private void label1_Click(object sender, EventArgs e)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    private void btnReproducir_Click(object sender, EventArgs e)
+    {
+        Cancion? cancion = cola.Desencolar();
+
+        if (cancion == null)
+        {
+            MessageBox.Show("La cola de reproducción está vacía.");
+            return;
+        }
+
+        lblTitulo.Text = "Título" + cancion.Titulo;
+        lblArtista.Text = "Artista" + cancion.Artista;
+        lblGenero.Text = "Género" + cancion.Genero;
+        lblDuracion.Text = "Duración: " + cancion.Duracion + " minutos";
+        
+        ActualizarTiempoTotal();
+    }
+
+    private void btnBuscar_Click(object sender, EventArgs e)
+    {
+        string titulo = txtBuscar.Text.Trim();
+
+        if (titulo == "")
+        {
+            MessageBox.Show("Ingrese el título de una canción.");
+            return;
+        }
+        
+        Cancion? cancion = arbol.Buscar(titulo);
+
+        if (cancion == null)
+        {
+            lblResultado.Text = "Canción no encontrada.";
+            return;
+        }
+        
+        lblResultado.Text = "Título: " + cancion.Titulo + "\n" +
+                            "Artista: " + cancion.Artista + "\n" +
+                            "Género: " + cancion.Genero + "\n" +
+                            "Duración: " + cancion.Duracion + " minutos";
+    }
 }
