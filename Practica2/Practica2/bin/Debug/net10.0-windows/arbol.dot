@@ -1,0 +1,10 @@
+digraph Arbol {
+node [shape=ellipse];
+nodo0 [label="Bohemian Rhapsody"];
+nodo1 [label="Blinding Lights"];
+nodo0 -> nodo1 [label="Izq"];
+nodo2 [label="Imagine"];
+nodo3 [label="Take Five"];
+nodo2 -> nodo3 [label="Der"];
+nodo0 -> nodo2 [label="Der"];
+}
