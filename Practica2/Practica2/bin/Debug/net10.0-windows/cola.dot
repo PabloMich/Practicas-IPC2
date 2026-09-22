@@ -1,11 +1,5 @@
 digraph Cola {
-rankdir=LR;
+rankdir=TB;
 node [shape=box];
-nodo0 [label="Bohemian Rhapsody\nQueen\nRock\n6 min"];
-nodo0 -> nodo1;
-nodo1 [label="Blinding Lights\nThe Weeknd\nPop\n3 min"];
-nodo1 -> nodo2;
-nodo2 [label="Imagine\nJohn Lennon\nRock\n3 min"];
-nodo2 -> nodo3;
-nodo3 [label="Take Five\nDave Brubeck\nJazz\n5 min"];
+vacio [label="Cola vacía"];
 }

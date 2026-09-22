@@ -43,13 +43,20 @@ partial class FrmPrincipal
         picCola = new System.Windows.Forms.PictureBox();
         picArbol = new System.Windows.Forms.PictureBox();
         pnlCancionActual = new System.Windows.Forms.Panel();
+        btnCargarJson = new System.Windows.Forms.Button();
         pnlCola = new System.Windows.Forms.Panel();
         pnlArbol = new System.Windows.Forms.Panel();
+        panelCola = new System.Windows.Forms.Panel();
+        panelArbol = new System.Windows.Forms.Panel();
+        btnZoomMasCola = new System.Windows.Forms.Button();
+        btnZoomMenosCola = new System.Windows.Forms.Button();
+        btnZoomMasArbol = new System.Windows.Forms.Button();
+        btnZoomMenosArbol = new System.Windows.Forms.Button();
         ((System.ComponentModel.ISupportInitialize)picCola).BeginInit();
         ((System.ComponentModel.ISupportInitialize)picArbol).BeginInit();
         pnlCancionActual.SuspendLayout();
-        pnlCola.SuspendLayout();
-        pnlArbol.SuspendLayout();
+        panelCola.SuspendLayout();
+        panelArbol.SuspendLayout();
         SuspendLayout();
         // 
         // lblTitulo
@@ -143,55 +150,133 @@ partial class FrmPrincipal
         // 
         // picCola
         // 
-        picCola.Location = new System.Drawing.Point(8, 7);
+        picCola.Location = new System.Drawing.Point(3, 3);
         picCola.Name = "picCola";
-        picCola.Size = new System.Drawing.Size(576, 284);
-        picCola.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+        picCola.Size = new System.Drawing.Size(520, 248);
         picCola.TabIndex = 11;
         picCola.TabStop = false;
         // 
         // picArbol
         // 
-        picArbol.Location = new System.Drawing.Point(5, 2);
+        picArbol.Location = new System.Drawing.Point(3, 3);
         picArbol.Name = "picArbol";
-        picArbol.Size = new System.Drawing.Size(576, 309);
-        picArbol.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+        picArbol.Size = new System.Drawing.Size(520, 242);
         picArbol.TabIndex = 12;
         picArbol.TabStop = false;
         // 
         // pnlCancionActual
         // 
+        pnlCancionActual.BackColor = System.Drawing.Color.Transparent;
+        pnlCancionActual.Controls.Add(btnCargarJson);
         pnlCancionActual.Controls.Add(btnReproducir);
         pnlCancionActual.Controls.Add(lblArtista);
         pnlCancionActual.Controls.Add(lblGenero);
         pnlCancionActual.Controls.Add(lblTitulo);
         pnlCancionActual.Controls.Add(lblDuracion);
+        pnlCancionActual.ForeColor = System.Drawing.Color.Black;
         pnlCancionActual.Location = new System.Drawing.Point(15, 24);
         pnlCancionActual.Name = "pnlCancionActual";
         pnlCancionActual.Size = new System.Drawing.Size(387, 317);
         pnlCancionActual.TabIndex = 13;
         // 
+        // btnCargarJson
+        // 
+        btnCargarJson.BackColor = System.Drawing.Color.Transparent;
+        btnCargarJson.Location = new System.Drawing.Point(19, 254);
+        btnCargarJson.Name = "btnCargarJson";
+        btnCargarJson.Size = new System.Drawing.Size(143, 35);
+        btnCargarJson.TabIndex = 5;
+        btnCargarJson.Text = "Cargar Json";
+        btnCargarJson.UseVisualStyleBackColor = false;
+        btnCargarJson.Click += btnCargarJson_Click;
+        // 
         // pnlCola
         // 
-        pnlCola.Controls.Add(picCola);
-        pnlCola.Location = new System.Drawing.Point(431, 82);
+        pnlCola.Location = new System.Drawing.Point(501, 12);
         pnlCola.Name = "pnlCola";
-        pnlCola.Size = new System.Drawing.Size(594, 299);
+        pnlCola.Size = new System.Drawing.Size(58, 72);
         pnlCola.TabIndex = 14;
         // 
         // pnlArbol
         // 
-        pnlArbol.Controls.Add(picArbol);
-        pnlArbol.Location = new System.Drawing.Point(434, 392);
+        pnlArbol.Location = new System.Drawing.Point(423, 12);
         pnlArbol.Name = "pnlArbol";
-        pnlArbol.Size = new System.Drawing.Size(590, 322);
+        pnlArbol.Size = new System.Drawing.Size(72, 72);
         pnlArbol.TabIndex = 15;
+        // 
+        // panelCola
+        // 
+        panelCola.AutoScroll = true;
+        panelCola.BackColor = System.Drawing.Color.White;
+        panelCola.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+        panelCola.Controls.Add(picCola);
+        panelCola.Location = new System.Drawing.Point(470, 104);
+        panelCola.Name = "panelCola";
+        panelCola.Size = new System.Drawing.Size(528, 256);
+        panelCola.TabIndex = 16;
+        // 
+        // panelArbol
+        // 
+        panelArbol.AutoScroll = true;
+        panelArbol.BackColor = System.Drawing.Color.White;
+        panelArbol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+        panelArbol.Controls.Add(picArbol);
+        panelArbol.Location = new System.Drawing.Point(470, 412);
+        panelArbol.Name = "panelArbol";
+        panelArbol.Size = new System.Drawing.Size(528, 250);
+        panelArbol.TabIndex = 17;
+        // 
+        // btnZoomMasCola
+        // 
+        btnZoomMasCola.Location = new System.Drawing.Point(650, 366);
+        btnZoomMasCola.Name = "btnZoomMasCola";
+        btnZoomMasCola.Size = new System.Drawing.Size(61, 44);
+        btnZoomMasCola.TabIndex = 18;
+        btnZoomMasCola.Text = "+";
+        btnZoomMasCola.UseVisualStyleBackColor = true;
+        btnZoomMasCola.Click += btnZoomMasCola_Click_1;
+        // 
+        // btnZoomMenosCola
+        // 
+        btnZoomMenosCola.Location = new System.Drawing.Point(728, 366);
+        btnZoomMenosCola.Name = "btnZoomMenosCola";
+        btnZoomMenosCola.Size = new System.Drawing.Size(50, 44);
+        btnZoomMenosCola.TabIndex = 19;
+        btnZoomMenosCola.Text = "-";
+        btnZoomMenosCola.UseVisualStyleBackColor = true;
+        btnZoomMenosCola.Click += btnZoomMenosCola_Click;
+        // 
+        // btnZoomMasArbol
+        // 
+        btnZoomMasArbol.Location = new System.Drawing.Point(650, 668);
+        btnZoomMasArbol.Name = "btnZoomMasArbol";
+        btnZoomMasArbol.Size = new System.Drawing.Size(61, 51);
+        btnZoomMasArbol.TabIndex = 20;
+        btnZoomMasArbol.Text = "+";
+        btnZoomMasArbol.UseVisualStyleBackColor = true;
+        btnZoomMasArbol.Click += btnZoomMasArbol_Click;
+        // 
+        // btnZoomMenosArbol
+        // 
+        btnZoomMenosArbol.Location = new System.Drawing.Point(728, 668);
+        btnZoomMenosArbol.Name = "btnZoomMenosArbol";
+        btnZoomMenosArbol.Size = new System.Drawing.Size(50, 51);
+        btnZoomMenosArbol.TabIndex = 21;
+        btnZoomMenosArbol.Text = "-";
+        btnZoomMenosArbol.UseVisualStyleBackColor = true;
+        btnZoomMenosArbol.Click += btnZoomMenosArbol_Click;
         // 
         // FrmPrincipal
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(1043, 731);
+        Controls.Add(btnZoomMenosArbol);
+        Controls.Add(btnZoomMasArbol);
+        Controls.Add(btnZoomMenosCola);
+        Controls.Add(btnZoomMasCola);
+        Controls.Add(panelArbol);
+        Controls.Add(panelCola);
         Controls.Add(pnlArbol);
         Controls.Add(pnlCola);
         Controls.Add(pnlCancionActual);
@@ -206,11 +291,21 @@ partial class FrmPrincipal
         ((System.ComponentModel.ISupportInitialize)picCola).EndInit();
         ((System.ComponentModel.ISupportInitialize)picArbol).EndInit();
         pnlCancionActual.ResumeLayout(false);
-        pnlCola.ResumeLayout(false);
-        pnlArbol.ResumeLayout(false);
+        panelCola.ResumeLayout(false);
+        panelArbol.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
+
+    private System.Windows.Forms.Button btnZoomMasCola;
+    private System.Windows.Forms.Button btnZoomMenosCola;
+    private System.Windows.Forms.Button btnZoomMasArbol;
+    private System.Windows.Forms.Button btnZoomMenosArbol;
+
+    private System.Windows.Forms.Panel panelCola;
+    private System.Windows.Forms.Panel panelArbol;
+
+    private System.Windows.Forms.Button btnCargarJson;
 
     private System.Windows.Forms.Panel pnlCancionActual;
     private System.Windows.Forms.Panel pnlCola;

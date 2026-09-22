@@ -12,7 +12,7 @@ public class GraphvizService
         StringBuilder dot = new StringBuilder();
 
         dot.AppendLine("digraph Cola {");
-        dot.AppendLine("rankdir=LR;");
+        dot.AppendLine("rankdir=TB;");
         dot.AppendLine("node [shape=box];");
 
         NodoCola? actual = frente;
@@ -68,6 +68,9 @@ public class GraphvizService
 
         dot.AppendLine("digraph Arbol {");
         dot.AppendLine("node [shape=ellipse];");
+        dot.AppendLine("nodesep=0.5;");
+        dot.AppendLine("ranksep=0.8;");
+        dot.AppendLine("splines=true;");
 
         if (raiz == null)
         {
