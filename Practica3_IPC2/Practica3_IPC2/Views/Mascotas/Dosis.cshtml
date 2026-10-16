@@ -1,0 +1,78 @@
+﻿
+@model Practica3_IPC2.Models.Mascota
+
+@{
+    ViewData["Title"] = "Calcular dosis";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Calculadora de dosis</h4>
+        </div>
+
+        <div class="card-body">
+
+            <h5>Paciente: @Model.Nombre</h5>
+
+            <p><strong>Especie:</strong> @Model.GetType().Name</p>
+            <p><strong>Peso:</strong> @Model.Peso kg</p>
+
+            <form asp-action="Dosis"
+                  asp-route-codigo="@Model.CodigoUnico"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Dosis estándar (mg/kg)
+                    </label>
+
+                    <input type="number"
+                           name="dosisPorKg"
+                           step="any"
+                           min="0.001"
+                           value="@ViewBag.DosisPorKg"
+                           class="form-control"
+                           required />
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Calcular dosis
+                </button>
+            </form>
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger mt-3">
+                    @ViewBag.Error
+                </div>
+            }
+
+            @if (ViewBag.Resultado != null)
+            {
+                <div class="alert alert-success mt-4">
+                    <h5>Resultado del cálculo</h5>
+
+                    <p>
+                        Dosis estándar:
+                        <strong>@ViewBag.DosisPorKg mg/kg</strong>
+                    </p>
+
+                    <p>
+                        Dosis final:
+                        <strong>@ViewBag.Resultado mg</strong>
+                    </p>
+                </div>
+            }
+
+            <a asp-action="Index"
+               class="btn btn-secondary mt-3">
+                Volver a pacientes
+            </a>
+
+        </div>
+    </div>
+</div>

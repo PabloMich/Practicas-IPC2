@@ -1,0 +1,35 @@
+﻿@model Practica3_IPC2.Models.MascotaFormulario
+
+@{
+    ViewData["Title"] = "Registrar mascota";
+    ViewData["EsEdicion"] = false;
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">🐾 Registrar nueva mascota</h4>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Crear" method="post">
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger"></div>
+
+                <partial name="_FormularioMascota" model="Model" />
+
+                <div class="mt-4 d-flex gap-2">
+                    <button type="submit" class="btn btn-success">
+                        Guardar mascota
+                    </button>
+
+                    <a asp-action="Index" class="btn btn-secondary">
+                        Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+﻿@model Practica3_IPC2.Models.Mascota
+
+@{
+    ViewData["Title"] = "Eliminar mascota";
+}
+
+<div class="container mt-4">
+    <div class="card border-danger shadow-sm">
+
+        <div class="card-header bg-danger text-white">
+            <h4 class="mb-0">Eliminar paciente</h4>
+        </div>
+
+        <div class="card-body">
+
+            <div class="alert alert-warning">
+                ¿Estás seguro de que deseas eliminar esta mascota?
+            </div>
+
+            <p><strong>Código:</strong> @Model.CodigoUnico</p>
+            <p><strong>Nombre:</strong> @Model.Nombre</p>
+            <p><strong>Especie:</strong> @Model.GetType().Name</p>
+            <p><strong>Propietario:</strong> @Model.Propietario</p>
+
+            <form asp-action="Eliminar"
+                  asp-route-codigo="@Model.CodigoUnico"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <button type="submit" class="btn btn-danger">
+                    Confirmar eliminación
+                </button>
+
+                <a asp-action="Index" class="btn btn-secondary">
+                    Cancelar
+                </a>
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+﻿
+@model Practica3_IPC2.Models.Mascota
+
+@{
+    ViewData["Title"] = "Detalles de mascota";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">Información del paciente</h4>
+        </div>
+
+        <div class="card-body">
+
+            <h3>@Model.Nombre</h3>
+            <p class="text-muted">Código: @Model.CodigoUnico</p>
+
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Especie</th>
+                        <td>@Model.GetType().Name</td>
+                    </tr>
+                    <tr>
+                        <th>Propietario</th>
+                        <td>@Model.Propietario</td>
+                    </tr>
+                    <tr>
+                        <th>Peso</th>
+                        <td>@Model.Peso kg</td>
+                    </tr>
+                    <tr>
+                        <th>Edad</th>
+                        <td>@Model.Edad años</td>
+                    </tr>
+                    <tr>
+                        <th>Sexo</th>
+                        <td>@Model.Sexo</td>
+                    </tr>
+                    <tr>
+                        <th>Estado</th>
+                        <td>
+                            @if (Model.Estado == "sano")
+                            {
+                                <span class="badge bg-success">Sano</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Enfermo</span>
+                            }
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h5 class="mt-4">Datos específicos</h5>
+
+            @if (Model is Practica3_IPC2.Models.Perro perro)
+            {
+                <p><strong>Raza:</strong> @perro.Raza</p>
+                <p><strong>Tamaño:</strong> @perro.Tamano</p>
+            }
+            else if (Model is Practica3_IPC2.Models.Gato gato)
+            {
+                <p><strong>Raza:</strong> @gato.Raza</p>
+                <p>
+                    <strong>Esterilizado:</strong>
+                    @(gato.IsEsterilizado ? "Sí" : "No")
+                </p>
+            }
+            else if (Model is Practica3_IPC2.Models.Ave ave)
+            {
+                <p>
+                    <strong>Envergadura:</strong>
+                    @ave.EnvergaduraAlas cm
+                </p>
+                <p>
+                    <strong>Puede volar:</strong>
+                    @(ave.PuedeVolar ? "Sí" : "No")
+                </p>
+            }
+            else if (Model is Practica3_IPC2.Models.Tortuga tortuga)
+            {
+                <p>
+                    <strong>Tipo de caparazón:</strong>
+                    @tortuga.TipoCaparazon
+                </p>
+                <p>
+                    <strong>Es acuática:</strong>
+                    @(tortuga.EsAcuatica ? "Sí" : "No")
+                </p>
+            }
+
+            <div class="mt-4 d-flex gap-2">
+                <a asp-action="Editar"
+                   asp-route-codigo="@Model.CodigoUnico"
+                   class="btn btn-warning">
+                    Editar
+                </a>
+
+                <a asp-action="Index" class="btn btn-secondary">
+                    Volver
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>

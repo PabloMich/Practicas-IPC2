@@ -1,0 +1,294 @@
+﻿
+@model Practica3_IPC2.Estructuras.ListaMascotas
+
+@{
+    ViewData["Title"] = "Dashboard";
+
+    int total = 0;
+    int sanos = 0;
+    int enfermos = 0;
+
+    var nodo = Model.ObtenerPrimero();
+
+    // Contar pacientes recorriendo los nodos
+    while (nodo != null)
+    {
+        total++;
+
+        if (nodo.Dato.Estado == "sano")
+        {
+            sanos++;
+        }
+        else if (nodo.Dato.Estado == "enfermo")
+        {
+            enfermos++;
+        }
+
+        nodo = nodo.Siguiente;
+    }
+}
+
+<!-- ENCABEZADO -->
+
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+
+    <div>
+        <h1 class="page-title">Dashboard</h1>
+
+        <p class="page-subtitle">
+            Bienvenido al sistema de gestión veterinaria.
+        </p>
+    </div>
+
+    <a asp-controller="Mascotas"
+       asp-action="Crear"
+       class="btn-vet">
+
+        <i class="fa-solid fa-plus"></i>
+        Registrar mascota
+
+    </a>
+
+</div>
+
+<!-- TARJETAS ESTADÍSTICAS -->
+
+<div class="stats-grid">
+
+    <div class="stat-card">
+
+        <div>
+            <div class="stat-label">Total de pacientes</div>
+            <div class="stat-number">@total</div>
+        </div>
+
+        <div class="stat-icon total">
+            <i class="fa-solid fa-paw"></i>
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div>
+            <div class="stat-label">Pacientes sanos</div>
+            <div class="stat-number">@sanos</div>
+        </div>
+
+        <div class="stat-icon healthy">
+            <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div>
+            <div class="stat-label">Pacientes enfermos</div>
+            <div class="stat-number">@enfermos</div>
+        </div>
+
+        <div class="stat-icon sick">
+            <i class="fa-solid fa-notes-medical"></i>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MENSAJE DE CONFIRMACIÓN -->
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-success">
+        <i class="fa-solid fa-circle-check me-2"></i>
+        @TempData["Mensaje"]
+    </div>
+}
+
+<!-- TABLA DE PACIENTES -->
+
+<div class="data-card">
+
+    <div class="data-card-header">
+
+        <div>
+            <h5>
+                <i class="fa-solid fa-clipboard-list me-2"></i>
+                Pacientes registrados
+            </h5>
+
+            <p>
+                Administra la información de las mascotas.
+            </p>
+        </div>
+
+        <span class="badge bg-secondary">
+            @total pacientes
+        </span>
+
+    </div>
+
+    @if (Model.EstaVacia())
+    {
+        <div class="text-center py-5">
+
+            <i class="fa-solid fa-paw fa-3x text-secondary mb-3"></i>
+
+            <h5>No hay mascotas registradas</h5>
+
+            <p class="text-muted">
+                Registra tu primera mascota para comenzar.
+            </p>
+
+            <a asp-action="Crear" class="btn-vet">
+                <i class="fa-solid fa-plus"></i>
+                Registrar mascota
+            </a>
+
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+
+            <table class="vet-table">
+
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Paciente</th>
+                        <th>Especie</th>
+                        <th>Propietario</th>
+                        <th>Peso</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                @{
+                    var actual = Model.ObtenerPrimero();
+                }
+
+                @while (actual != null)
+                {
+                    var mascota = actual.Dato;
+
+                    <tr>
+
+                        <td>
+                            <span class="pet-code">
+                                @mascota.CodigoUnico
+                            </span>
+                        </td>
+
+                        <td>
+                            <span class="pet-name">
+                                @mascota.Nombre
+                            </span>
+                        </td>
+
+                        <td>
+                            @mascota.GetType().Name
+                        </td>
+
+                        <td>
+                            @mascota.Propietario
+                        </td>
+
+                        <td>
+                            @mascota.Peso kg
+                        </td>
+
+                        <td>
+                            @if (mascota.Estado == "sano")
+                            {
+                                <span class="status-badge sano">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    Sano
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="status-badge enfermo">
+                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                    Enfermo
+                                </span>
+                            }
+                        </td>
+
+                        <td>
+
+                            <div class="action-buttons">
+
+                                <!-- VER -->
+
+                                <a asp-action="Detalles"
+                                   asp-route-codigo="@mascota.CodigoUnico"
+                                   class="action-btn view"
+                                   title="Ver información">
+                                    <i class="fa-solid fa-eye"></i>
+                                </a>
+
+                                <!-- EDITAR -->
+
+                                <a asp-action="Editar"
+                                   asp-route-codigo="@mascota.CodigoUnico"
+                                   class="action-btn edit"
+                                   title="Editar mascota">
+                                    <i class="fa-solid fa-pen"></i>
+                                </a>
+
+                                <!-- DOSIS -->
+
+                                <a asp-action="Dosis"
+                                   asp-route-codigo="@mascota.CodigoUnico"
+                                   class="action-btn dose"
+                                   title="Calcular dosis">
+                                    <i class="fa-solid fa-syringe"></i>
+                                </a>
+
+                                <!-- CAMBIAR ESTADO -->
+
+                                <form asp-action="CambiarEstado"
+                                      asp-route-codigo="@mascota.CodigoUnico"
+                                      method="post">
+
+                                    @Html.AntiForgeryToken()
+
+                                    <button type="submit"
+                                            class="action-btn state"
+                                            title="Cambiar estado">
+                                        <i class="fa-solid fa-arrows-rotate"></i>
+                                    </button>
+
+                                </form>
+
+                                <!-- ELIMINAR -->
+
+                                <a asp-action="Eliminar"
+                                   asp-route-codigo="@mascota.CodigoUnico"
+                                   class="action-btn delete"
+                                   title="Eliminar mascota">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    actual = actual.Siguiente;
+                }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    }
+
+</div>

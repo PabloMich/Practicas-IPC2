@@ -1,0 +1,177 @@
+﻿
+@model Practica3_IPC2.Models.MascotaFormulario
+
+@{
+    bool esEdicion = ViewData["EsEdicion"] is true;
+}
+
+<div class="row g-3">
+
+    <div class="col-md-6">
+        <label asp-for="Nombre" class="form-label">Nombre</label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Tipo" class="form-label">Especie</label>
+
+        @if (esEdicion)
+        {
+            <input asp-for="Tipo" type="hidden" id="Tipo" />
+            <input class="form-control" value="@Model.Tipo" disabled />
+        }
+        else
+        {
+            <select asp-for="Tipo" class="form-select" id="Tipo">
+                <option value="">Seleccione una especie</option>
+                <option value="Perro">Perro</option>
+                <option value="Gato">Gato</option>
+                <option value="Ave">Ave</option>
+                <option value="Tortuga">Tortuga</option>
+            </select>
+        }
+
+        <span asp-validation-for="Tipo" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Peso" class="form-label">Peso (kg)</label>
+        <input asp-for="Peso" type="number" step="any" min="0.001"
+               class="form-control" />
+        <span asp-validation-for="Peso" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Edad" class="form-label">Edad (años)</label>
+        <input asp-for="Edad" type="number" min="0"
+               class="form-control" />
+        <span asp-validation-for="Edad" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Sexo" class="form-label">Sexo</label>
+        <select asp-for="Sexo" class="form-select">
+            <option value="">Seleccione</option>
+            <option value="Macho">Macho</option>
+            <option value="Hembra">Hembra</option>
+        </select>
+        <span asp-validation-for="Sexo" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Propietario" class="form-label">Propietario</label>
+        <input asp-for="Propietario" class="form-control" />
+        <span asp-validation-for="Propietario" class="text-danger"></span>
+    </div>
+
+</div>
+
+<hr class="my-4" />
+
+<h5>Datos específicos de la mascota</h5>
+
+<div id="datosPerro" class="datos-especie row g-3 mt-1">
+    <div class="col-md-6">
+        <label asp-for="Raza" class="form-label">Raza</label>
+        <input asp-for="Raza" class="form-control" />
+        <span asp-validation-for="Raza" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Tamano" class="form-label">Tamaño</label>
+        <select asp-for="Tamano" class="form-select">
+            <option value="">Seleccione</option>
+            <option value="Pequeño">Pequeño</option>
+            <option value="Mediano">Mediano</option>
+            <option value="Grande">Grande</option>
+        </select>
+        <span asp-validation-for="Tamano" class="text-danger"></span>
+    </div>
+</div>
+
+<div id="datosGato" class="datos-especie row g-3 mt-1">
+    <div class="col-md-6">
+        <label class="form-label">Raza</label>
+        <input name="Raza" value="@Model.Raza" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <div class="form-check mt-4">
+            <input asp-for="IsEsterilizado" class="form-check-input" />
+            <label asp-for="IsEsterilizado" class="form-check-label">
+                ¿Está esterilizado?
+            </label>
+        </div>
+    </div>
+</div>
+
+<div id="datosAve" class="datos-especie row g-3 mt-1">
+    <div class="col-md-6">
+        <label asp-for="EnvergaduraAlas" class="form-label">
+            Envergadura de alas (cm)
+        </label>
+        <input asp-for="EnvergaduraAlas" type="number"
+               step="any" min="0.001" class="form-control" />
+        <span asp-validation-for="EnvergaduraAlas" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <div class="form-check mt-4">
+            <input asp-for="PuedeVolar" class="form-check-input" />
+            <label asp-for="PuedeVolar" class="form-check-label">
+                ¿Puede volar?
+            </label>
+        </div>
+    </div>
+</div>
+
+<div id="datosTortuga" class="datos-especie row g-3 mt-1">
+    <div class="col-md-6">
+        <label asp-for="TipoCaparazon" class="form-label">
+            Tipo de caparazón
+        </label>
+        <input asp-for="TipoCaparazon" class="form-control" />
+        <span asp-validation-for="TipoCaparazon" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <div class="form-check mt-4">
+            <input asp-for="EsAcuatica" class="form-check-input" />
+            <label asp-for="EsAcuatica" class="form-check-label">
+                ¿Es acuática?
+            </label>
+        </div>
+    </div>
+</div>
+
+<script>
+    function actualizarCamposMascota() {
+        const tipo = document.getElementById("Tipo").value;
+
+        document.querySelectorAll(".datos-especie").forEach(seccion => {
+            seccion.style.display = "none";
+
+            // Deshabilitar campos ocultos para que no se envíen
+            seccion.querySelectorAll("input, select").forEach(campo => {
+                campo.disabled = true;
+            });
+        });
+
+        const seccion = document.getElementById("datos" + tipo);
+
+        if (seccion) {
+            seccion.style.display = "flex";
+
+            seccion.querySelectorAll("input, select").forEach(campo => {
+                campo.disabled = false;
+            });
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        actualizarCamposMascota();
+
+        const selector = document.getElementById("Tipo");
+
+        if (selector.tagName === "SELECT") {
+            selector.addEventListener("change", actualizarCamposMascota);
+        }
+    });
+</script>

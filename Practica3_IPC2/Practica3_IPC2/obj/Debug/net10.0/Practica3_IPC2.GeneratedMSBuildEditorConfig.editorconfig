@@ -30,6 +30,34 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pablo/RiderProjects/Practicas/Practica3_IPC2/Practica3_IPC2/Views/Mascotas/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo/RiderProjects/Practicas/Practica3_IPC2/Practica3_IPC2/Views/Mascotas/Detalles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcRGV0YWxsZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo/RiderProjects/Practicas/Practica3_IPC2/Practica3_IPC2/Views/Mascotas/Dosis.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcRG9zaXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo/RiderProjects/Practicas/Practica3_IPC2/Practica3_IPC2/Views/Mascotas/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo/RiderProjects/Practicas/Practica3_IPC2/Practica3_IPC2/Views/Mascotas/Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcRWxpbWluYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo/RiderProjects/Practicas/Practica3_IPC2/Practica3_IPC2/Views/Mascotas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo/RiderProjects/Practicas/Practica3_IPC2/Practica3_IPC2/Views/Mascotas/_FormularioMascota.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcX0Zvcm11bGFyaW9NYXNjb3RhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pablo/RiderProjects/Practicas/Practica3_IPC2/Practica3_IPC2/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

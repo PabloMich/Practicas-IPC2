@@ -119,7 +119,6 @@ C:\Users\pablo\RiderProjects\Practicas\Practica3_IPC2\Practica3_IPC2\obj\Debug\n
 C:\Users\pablo\RiderProjects\Practicas\Practica3_IPC2\Practica3_IPC2\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\pablo\RiderProjects\Practicas\Practica3_IPC2\Practica3_IPC2\obj\Debug\net10.0\scopedcss\bundle\Practica3_IPC2.styles.css
 C:\Users\pablo\RiderProjects\Practicas\Practica3_IPC2\Practica3_IPC2\obj\Debug\net10.0\scopedcss\projectbundle\Practica3_IPC2.bundle.scp.css
-C:\Users\pablo\RiderProjects\Practicas\Practica3_IPC2\Practica3_IPC2\obj\Debug\net10.0\compressed\3gqkfee8mf-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\pablo\RiderProjects\Practicas\Practica3_IPC2\Practica3_IPC2\obj\Debug\net10.0\compressed\9gj5mcvbsc-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\pablo\RiderProjects\Practicas\Practica3_IPC2\Practica3_IPC2\obj\Debug\net10.0\compressed\htll937bwh-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\pablo\RiderProjects\Practicas\Practica3_IPC2\Practica3_IPC2\obj\Debug\net10.0\compressed\34yskjk37o-{0}-t1cqhe9u97-t1cqhe9u97.gz
@@ -193,3 +192,4 @@ C:\Users\pablo\RiderProjects\Practicas\Practica3_IPC2\Practica3_IPC2\obj\Debug\n
 C:\Users\pablo\RiderProjects\Practicas\Practica3_IPC2\Practica3_IPC2\obj\Debug\net10.0\Practica3_IPC2.pdb
 C:\Users\pablo\RiderProjects\Practicas\Practica3_IPC2\Practica3_IPC2\obj\Debug\net10.0\Practica3_IPC2.genruntimeconfig.cache
 C:\Users\pablo\RiderProjects\Practicas\Practica3_IPC2\Practica3_IPC2\obj\Debug\net10.0\ref\Practica3_IPC2.dll
+C:\Users\pablo\RiderProjects\Practicas\Practica3_IPC2\Practica3_IPC2\obj\Debug\net10.0\compressed\3gqkfee8mf-{0}-m71r4jvqev-m71r4jvqev.gz

@@ -1,6 +1,5 @@
 ﻿using System;
 using Practica3_IPC2.Models;
-using System.Collections.Generic;
 
 namespace Practica3_IPC2.Estructuras
 {
@@ -97,16 +96,11 @@ namespace Practica3_IPC2.Estructuras
             return cabeza == null;
         }
         
-        public IEnumerable<Mascota> ObtenerTodas()
+        public Nodo? ObtenerPrimero()
         {
-            Nodo? actual = cabeza;
-
-            while (actual != null)
-            {
-                yield return actual.Dato;
-                actual = actual.Siguiente;
-            }
+            return cabeza;
         }
 
+        
     }
 }
